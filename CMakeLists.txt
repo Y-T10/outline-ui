@@ -41,4 +41,4 @@ find_package(Threads REQUIRED)
 #find_package(Boost REQUIRED)
 
 # Add sub directories
-#add_subdirectory(sub-dirs)
+add_subdirectory(src)
