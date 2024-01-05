@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 
+# このプロジェクトの概要を設定する
 project(cpp_template
     VERSION 0.0.1
     LANGUAGES CXX
     DESCRIPTION "Personal cpp template repository."
 )
 
+# CMakeのポリシーを設定する
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0128 NEW)
 set(CMAKE_POLICY_DEFAULT_CMP0128 NEW)
@@ -32,7 +34,7 @@ CPMAddPackage(
     GIT_TAG v10.2.1
 )
 
-# Find packages
+# システム内のパッケージを読み込む
 find_package(Threads REQUIRED)
 #find_package(Boost REQUIRED)
 
