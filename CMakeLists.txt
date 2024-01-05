@@ -33,8 +33,8 @@ CPMAddPackage(
 )
 
 # Find packages
+find_package(Threads REQUIRED)
 #find_package(Boost REQUIRED)
-#find_package(Threads REQUIRED)
 
 # Add sub directories
 #add_subdirectory(sub-dirs)
