@@ -33,7 +33,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake)
 CPMAddPackage(
     NAME fmt
     GITHUB_REPOSITORY fmtlib/fmt
-    GIT_TAG v10.2.1
+    GIT_TAG 10.2.1
 )
 
 # システム内のパッケージを読み込む
