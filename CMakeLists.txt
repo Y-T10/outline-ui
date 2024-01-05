@@ -22,6 +22,15 @@ add_compile_options(-Wall $<$<CONFIG:Debug>:-g3>)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# CPMを有効にする
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake)
+
+# CPMを用いてネット上のパッケージを取り込む
+CPMAddPackage(
+    NAME fmt
+    GITHUB_REPOSITORY fmtlib/fmt
+    GIT_TAG v10.2.1
+)
 
 # Find packages
 #find_package(Boost REQUIRED)
