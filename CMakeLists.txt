@@ -7,6 +7,11 @@ project(cpp_template
     DESCRIPTION "Personal cpp template repository."
 )
 
+# ビルド周りの設定
+option(BUILD_SHARED_LIBS "Build shared libraries." OFF)
+option(CMAKE_BUILD_TYPE "Build type." Release)
+option(CMAKE_EXPORT_COMPILE_COMMANDS "Generate `compile_commands.json` in build directories." 1)
+
 # CMakeのポリシーを設定する
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0128 NEW)
@@ -18,13 +23,9 @@ set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 # C++コンパイラに渡すオプションを設定する
 add_compile_options(-Wall $<$<CONFIG:Debug>:-g3>)
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_BUILD_TYPE Release)
-
-# clangd向けの設定ファイルを生成させる
-set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_CXX_STANDARD 20)
 
 # CPMを有効にする
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CPM.cmake)
