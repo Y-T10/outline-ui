@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 # このプロジェクトの概要を設定する
-project(cpp_template
+project(OutlineUI
     VERSION 0.0.1
     LANGUAGES CXX
     DESCRIPTION "Personal cpp template repository."
@@ -10,7 +10,11 @@ project(cpp_template
 # ビルド周りの設定
 option(BUILD_SHARED_LIBS "Build shared libraries." OFF)
 option(CMAKE_BUILD_TYPE "Build type." Release)
-option(CMAKE_EXPORT_COMPILE_COMMANDS "Generate `compile_commands.json` in build directories." 1)
+
+# CMAKE_EXPORT_COMPILE_COMMANDSの既定値を設定する
+if ((NOT (DEFINED $ENV{CMAKE_EXPORT_COMPILE_COMMANDS})) AND (DEFINED CMAKE_EXPORT_COMPILE_COMMANDS))
+  set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+endif()
 
 # CMakeのポリシーを設定する
 cmake_policy(SET CMP0076 NEW)
@@ -47,7 +51,20 @@ CPMAddPackage(
 
 # システム内のパッケージを読み込む
 find_package(Threads REQUIRED)
-#find_package(Boost REQUIRED)
+find_package(Boost 1.74.0 REQUIRED)
+
+# 自作ライブラリAtmを定義
+add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
+# ヘッダファイルのディレクトリを追加
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# プログラムが利用するターゲットを追加
+target_link_libraries(
+    ${PROJECT_NAME} INTERFACE
+    Threads::Threads Boost::boost
+)
 
 # Add sub directories
 add_subdirectory(src)
