@@ -8,10 +8,10 @@
 #include <vector>
 #include <utility>
 
-#include "AtmWidgetConcept.hpp"
+#include "OUI_widget_concept.hpp"
+#include "OUI_types.hpp"
 
 #include "boost/geometry/algorithms/disjoint.hpp"
-#include "AtmTypes.hpp"
 
 namespace outlineUI {
     /// TODO: ウィジェト内の座標と外の座標の変換を扱う

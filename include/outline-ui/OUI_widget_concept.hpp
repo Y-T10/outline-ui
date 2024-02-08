@@ -4,7 +4,7 @@
 #include <concepts>
 #include <utility>
 
-#include "AtmTypes.hpp"
+#include "OUI_types.hpp"
 
 namespace outlineUI {
     template<class T, class coord_type>
