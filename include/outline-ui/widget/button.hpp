@@ -6,19 +6,21 @@
 
 template <class coord_type>
 struct Button {
+    using boundary_type = outlineUI::boundary_t<coord_type>;
+
     std::string text;
-    boundary_t<coord_type> button_area;
+    boundary_type button_area;
     bool is_pressed;
 
-    const boundary_t<coord_type> boundary_area() noexcept {
+    const boundary_type boundary_area() noexcept {
         return button_area;
     }
 
-    const boundary_t<coord_type> boundary_area() const noexcept {
+    const boundary_type boundary_area() const noexcept {
         return button_area;
     }
 
-    void boundary_area(const boundary_t<coord_type>& area) noexcept {
+    void boundary_area(const boundary_type& area) noexcept {
         button_area = area;
     }
 
