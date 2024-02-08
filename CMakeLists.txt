@@ -47,6 +47,7 @@ CPMAddPackage(
 
 # システム内のパッケージを読み込む
 find_package(Threads REQUIRED)
+find_package(Boost 1.74.0 REQUIRED)
 
 # 自作ライブラリAtmを定義
 add_library(${PROJECT_NAME} INTERFACE)
