@@ -37,4 +37,4 @@ struct Button {
     }
 };
 
-static_assert(outlineUI::Widget2<Button<int>, int>);
+static_assert(outlineUI::Widget<Button<int>, int>);

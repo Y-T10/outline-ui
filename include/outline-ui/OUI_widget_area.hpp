@@ -15,7 +15,7 @@
 
 namespace outlineUI {
     /// TODO: ウィジェト内の座標と外の座標の変換を扱う
-    template<class coord_type, Widget2<coord_type> ...widgets>
+    template<class coord_type, Widget<coord_type> ...widgets>
     struct WidgetArea2 {
         using widget_type = std::variant<widgets...>;
         using widget_container = std::vector<widget_type>;
@@ -69,5 +69,5 @@ namespace outlineUI {
         const_iterator end() const noexcept { return widget_array.end(); }
     };
     
-    static_assert(Widget2<WidgetArea2<int>, int>);
+    static_assert(Widget<WidgetArea2<int>, int>);
 }
