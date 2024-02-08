@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "AtmWidgetConcept.hpp"
-#include "AtmTypes.hpp"
+#include "../OUI_widget_concept.hpp"
+#include "../OUI_types.hpp"
 
 template <class coord_type>
 struct Button {
