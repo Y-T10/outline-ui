@@ -47,7 +47,19 @@ CPMAddPackage(
 
 # システム内のパッケージを読み込む
 find_package(Threads REQUIRED)
-#find_package(Boost REQUIRED)
+
+# 自作ライブラリAtmを定義
+add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
+# ヘッダファイルのディレクトリを追加
+target_include_directories(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# プログラムが利用するターゲットを追加
+target_link_libraries(
+    ${PROJECT_NAME} INTERFACE
+    Threads::Threads Boost::boost
+)
 
 # Add sub directories
 add_subdirectory(src)
